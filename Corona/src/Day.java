@@ -86,6 +86,8 @@ class Day {
             currentAmountofEffectedPeople = currentAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100)));
         }
 
+        //contaminatedPeopleToday = (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100)));
+
     }
 
     public int getDay(){
