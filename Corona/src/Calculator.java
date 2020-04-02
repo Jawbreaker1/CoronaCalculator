@@ -56,10 +56,11 @@ class Calculator {
         //om vi uppnått maximal spridning så får det hanteras här när man uppdaterar veckan
         //skriv ut veckansdata via rapportklassen
 
-        if(excelOutput) {
-            System.out.println("Day;Sick;IVA;Deaths;Recovered");
+        /*if(excelOutput) {
+            //System.out.println("Day\tSick\tIVA\tDeaths\tRecovered");
+            System.out.println(day.getDay() + "\t" + day.getCurrentAmountofEffectedPeople() +"\t" + day.getNrOfIVEinUse() +"\t" + day.getTotalAmountofDeadPeople() + "\t" + day.getTotalAmountOfRecoveredPeople());
 
-        }
+        }*/
     }
 
 
