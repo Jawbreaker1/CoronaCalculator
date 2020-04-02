@@ -6,6 +6,7 @@ class Calculator {
 
     private ArrayList<Day> daysOfInfectionList;
     private int daysOfIllness;
+    private boolean excelOutput = true;
 
     public Calculator(int population, int initialAmountOfInfected, double dailySpreadRate, double expectedPopulationCoverage, double deathRate,  double percetageInNeedOfIVE, double percentageInNeedOfMedicalCare, int maxIVA, int daysOfIllness){
         setTotalExpectedAmountofEffectedPeople(population, expectedPopulationCoverage);
@@ -54,6 +55,11 @@ class Calculator {
         //förr-förra veckans data används för att räkna IVA-behov, friskförklara och dödsfall
         //om vi uppnått maximal spridning så får det hanteras här när man uppdaterar veckan
         //skriv ut veckansdata via rapportklassen
+
+        if(excelOutput) {
+            System.out.println("Day;Sick;IVA;Deaths;Recovered");
+
+        }
     }
 
 
