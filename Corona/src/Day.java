@@ -63,7 +63,7 @@ class Day {
         //behöver veta potentiella totalen? Vi räknar upp med weekly spread tills dess vi nått hälften av totalen
         //vad gör vi när vi nått peak? Halvera spridningen?
         if (totalAmountofEffectedPeople>=(maxEffectedPeople/2) /*&& spreadPeak == false*/) {
-            dailySpreadRate = (int)Math.round(dailySpreadRate/2);
+            dailySpreadRate = (int)Math.round(dailySpreadRate*0.725);
             spreadPeak = true;
             //System.out.println("Half expected population contaminated!! Reduced spread rate.");
         } else if (totalAmountofEffectedPeople >= maxEffectedPeople) {
