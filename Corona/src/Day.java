@@ -51,10 +51,10 @@ class Day {
         increaseDay();
         //räkna upp antal smittade
         increaseContaminated(relevantDay);
-        //räkna upp antal friskförklarade
-        increaseHealthy(relevantDay);
         //räkna upp antal döda
         increaseDeathCount(relevantDay);
+        //räkna upp antal friskförklarade
+        increaseHealthy(relevantDay);
         //räkna upp antal med intensivbehov
         calculateIVA(relevantDay);
     }
@@ -75,8 +75,8 @@ class Day {
         contaminatedPeopleToday = (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100)));
 
         if (relevantDay!=null) {
-            totalAmountofEffectedPeople = totalAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))) + getDeadPeopleToday();
-            currentAmountofEffectedPeople = currentAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))) - relevantDay.getContaminatedPeopleToday() - getDeadPeopleToday();
+            totalAmountofEffectedPeople = totalAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))) + (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
+            currentAmountofEffectedPeople = currentAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))) - relevantDay.getContaminatedPeopleToday() - (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
             if (currentAmountofEffectedPeople < 0){
                 currentAmountofEffectedPeople = 0;
             }
@@ -101,8 +101,8 @@ class Day {
                 System.out.println("Peak contamination reached!!!!");
                 peakFlag = true;
             }*/
-            totalAmountOfRecoveredPeople = totalAmountOfRecoveredPeople + relevantDay.getContaminatedPeopleToday() - getDeadPeopleToday();
-            recoveredPeopleToday = relevantDay.getContaminatedPeopleToday() - getDeadPeopleToday();
+            totalAmountOfRecoveredPeople = totalAmountOfRecoveredPeople + relevantDay.getContaminatedPeopleToday() - (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
+            recoveredPeopleToday = relevantDay.getContaminatedPeopleToday() - (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
         }
     }
 
