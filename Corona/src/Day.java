@@ -75,11 +75,11 @@ class Day {
         contaminatedPeopleToday = (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100)));
 
         if (relevantDay!=null) {
-            totalAmountofEffectedPeople = totalAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))) + (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
-            currentAmountofEffectedPeople = currentAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))) - relevantDay.getContaminatedPeopleToday() - (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
-            if (currentAmountofEffectedPeople < 0){
+            totalAmountofEffectedPeople = totalAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))); // + (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
+            currentAmountofEffectedPeople = currentAmountofEffectedPeople + (int)Math.round((currentAmountofEffectedPeople * (dailySpreadRate / 100))) - relevantDay.getContaminatedPeopleToday(); //- (int)Math.round((relevantDay.getContaminatedPeopleToday() * (currentDeathRate / 100)));
+           /* if (currentAmountofEffectedPeople < 0){
                 currentAmountofEffectedPeople = 0;
-            }
+            }*/
 
         } else
         {
