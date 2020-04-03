@@ -14,7 +14,7 @@ class Calculator {
         Day day = new Day(0, initialAmountOfInfected, dailySpreadRate, deathRate, totalExpectedAmountofEffetedPeople/2, percetageInNeedOfIVE, maxIVA, totalExpectedAmountofEffetedPeople,initialAmountOfInfected );
         //kör calculateDay fram tills dess att vi har noll sjuka och noll IVA.
         daysOfInfectionList = new ArrayList<Day>();
-        while(day.getCurrentAmountofEffectedPeople()>0 || day.getNrOfIVEinUse()>0){
+        while(day.getCurrentAmountofEffectedPeople()>0 /*|| day.getNrOfIVEinUse()>0*/){
             calculateDay(day);
         }
     }
